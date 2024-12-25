@@ -8,5 +8,9 @@
 -- @author KhanhDzai - https://www.facebook.com/khanhdepzai.pro/
 -- @version 1.0
 MainLuaByKhanhDz = {
-    callBack_onOpen = require("src.callback.onOpen")
+    callBack_onOpen = require("src.callback.onOpen"),
+    callBack_onException = require("src.callback.onException"),
+    callBack_onClose = require("src.callback.onClose"),
+    callBack_onEvenMessage = require("src.callback.onMessage.onEvenMessage")
 }
+  

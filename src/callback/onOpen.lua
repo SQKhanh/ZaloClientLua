@@ -11,8 +11,4 @@ function this.process(serverHandshake)
     ]], serverHandshake:getHttpStatus(), serverHandshake:getHttpStatusMessage()))
 end
 
-function this.test()
-    print("ok em");
-end
-
 return this
