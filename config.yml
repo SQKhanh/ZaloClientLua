@@ -1,0 +1,12 @@
+zalo:
+  # Đường dẫn tới dữ liệu tài khoản
+  pathDataAccount: data/account/
+
+  # Lắng nghe sự kiện từ bản thân hay không
+  selfListen: false
+
+  # Phiên bản API, Nếu giá trị là -1, sử dụng giá trị mặc định là 30
+  apiVersion: -1
+
+  # Loại API, Nếu giá trị là -1, sử dụng giá trị mặc định là 642
+  apiType: -1
