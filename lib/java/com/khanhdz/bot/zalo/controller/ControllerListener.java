@@ -6,7 +6,7 @@ package com.khanhdz.bot.zalo.controller;
 
 import com.khanhdz.MainConfig;
 import com.khanhdz.bot.zalo.ZaloLua;
-import com.khanhdz.bot.zalo.model.dto.MessageFromListen;
+import com.khanhdz.bot.zalo.model.dto.msgType.WebChat;
 import com.khanhdz_util.Logger;
 import java.util.Arrays;
 import org.java_websocket.client.WebSocketClient;
@@ -66,16 +66,18 @@ public class ControllerListener {
                             // nếu là tin nhắn của bản thân
                             if (msg.optString("uidFrom").equals("0")) {
                                 if (MainConfig.Instance.getZalo().isSelfListen()) {
-                                    ZaloLua.Instance.callLuaAPI(ZaloLua.API.EVENT_MESSAGE_DIRECT_ON_SELF_MESSAGE, new MessageFromListen(MessageFromListen.TYPE_MESSAGE_DIRECT, msg));
+                                    ZaloLua.Instance.callLuaAPI(ZaloLua.API.EVENT_MESSAGE_DIRECT_WEBCHAT_SELF, new WebChat(WebChat.TYPE_MESSAGE_DIRECT, msg));
                                 }
                             } else {
                                 switch (msg.getString("msgType")) {
                                     case "chat.undo":
 //                                    ZaloWebSocketClient.this.callBackEventMessageChatUndo.accept(new MessageFromListen(0, msg));
                                         break;
+                                    case "webchat":
+                                        ZaloLua.Instance.callLuaAPI(ZaloLua.API.EVENT_MESSAGE_DIRECT_WEBCHAT, new WebChat(WebChat.TYPE_MESSAGE_DIRECT, msg));
+                                        break;
                                     default:
-                                        ZaloLua.Instance.callLuaAPI(ZaloLua.API.EVENT_MESSAGE_DIRECT_ON_MESSAGE, new MessageFromListen(MessageFromListen.TYPE_MESSAGE_DIRECT, msg));
-
+                                        Logger.DebugLogic("unknow msgType: " + msg.toString(4));
                                         break;
                                 }
                             }
@@ -104,18 +106,21 @@ public class ControllerListener {
                             // nếu là tin nhắn của bản thân
                             if (msg.optString("uidFrom").equals("0")) {
                                 if (MainConfig.Instance.getZalo().isSelfListen()) {
-                                    ZaloLua.Instance.callLuaAPI(ZaloLua.API.EVENT_MESSAGE_GROUP_ON_SELF_MESSAGE, new MessageFromListen(MessageFromListen.TYPE_MESSAGE_GROUP, msg));
+                                    ZaloLua.Instance.callLuaAPI(ZaloLua.API.EVENT_MESSAGE_GROUP_WEBCHAT_SELF, new WebChat(WebChat.TYPE_MESSAGE_GROUP, msg));
                                 }
                             } else {
                                 switch (msg.getString("msgType")) {
-                                    case "chat.delete":
-//                                    ZaloWebSocketClient.this.callBackEventMessageChatDelete.accept(new MessageFromListen(1, msg));
-                                        break;
-                                    case "chat.undo": // thu hồi
-//                                    ZaloWebSocketClient.this.callBackEventMessageChatUndo.accept(new MessageFromListen(1, msg));
+//                                    case "chat.delete":
+                                    ////                                    ZaloWebSocketClient.this.callBackEventMessageChatDelete.accept(new MessageFromListen(1, msg));
+//                                        break;
+//                                    case "chat.undo": // thu hồi
+////                                    ZaloWebSocketClient.this.callBackEventMessageChatUndo.accept(new MessageFromListen(1, msg));
+//                                        break;
+                                    case "webchat":
+                                        ZaloLua.Instance.callLuaAPI(ZaloLua.API.EVENT_MESSAGE_GROUP_WEBCHAT, new WebChat(WebChat.TYPE_MESSAGE_GROUP, msg));
                                         break;
                                     default:
-                                        ZaloLua.Instance.callLuaAPI(ZaloLua.API.EVENT_MESSAGE_GROUP_ON_MESSAGE, new MessageFromListen(MessageFromListen.TYPE_MESSAGE_GROUP, msg));
+                                        Logger.DebugLogic("unknow msgType: " + msg.toString(4));
                                         break;
                                 }
 

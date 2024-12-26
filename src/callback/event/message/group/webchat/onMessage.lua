@@ -4,10 +4,17 @@ local this = {}
 -- @param: com.khanhdz.bot.zalo.model.dto.MessageFromListen: msg,
 function this.process(msg)
 
-    print(string.format([[
-        ??? direct on message ???
-        msg: %s
-    ]], msg:getData():toString(4)))
+    if msg:isFromMaster() then
+        print('is master');
+        
+        print(string.format([[
+            ??? group on message ???
+            msg: %s
+        ]], msg:getData():toString(4)))
+
+    else
+        print('is not master');
+    end
 
     -- local success, err = pcall(function()
     --     if msg:getTypeMessage() == 0 then

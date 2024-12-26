@@ -17,3 +17,14 @@ zalo:
   # Cấu hình tự động kết nối lại khi gặp lỗi Ping-Pong hoặc mất kết nối
   # Nếu là true, sẽ tự động kết nối lại khi có sự cố xảy ra
   listenerAutoReconnectOnFailurePingPong: true
+
+  # Cấu hình Zalo ID của người quản trị chính (Master ID).
+  # Đây là ID của người dùng được chỉ định có quyền quản lý cao nhất trong việc xử lý các sự kiện và tin nhắn.
+  idMaster: "8577675992826788959"
+
+  # Danh sách ID của các nhóm mà bot sẽ lắng nghe và xử lý sự kiện.
+  # Lưu ý: Mỗi tài khoản Zalo sẽ có ID nhóm khác nhau ngay cả khi tham gia cùng một nhóm.
+  # Ví dụ: Một nhóm ABC có thể có ID "50248...." với tài khoản A, nhưng lại có ID "2482748...." với tài khoản B.
+  # Vì vậy, cần cấu hình lại danh sách ID nhóm khi thay đổi tài khoản sử dụng.
+  idGroupActive:
+    - "5090396119491093489"

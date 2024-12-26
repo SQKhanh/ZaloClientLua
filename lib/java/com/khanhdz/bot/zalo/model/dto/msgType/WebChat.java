@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.khanhdz.bot.zalo.model.dto;
+package com.khanhdz.bot.zalo.model.dto.msgType;
 
+import com.khanhdz.config.ConfigHelper;
 import lombok.Getter;
 import org.json.JSONObject;
 
@@ -12,7 +13,7 @@ import org.json.JSONObject;
  * @author KhanhDzai - https://www.facebook.com/khanhdepzai.pro/
  */
 @Getter
-public class MessageFromListen {
+public class WebChat {
 
     public static final int TYPE_MESSAGE_DIRECT = 0;
     public static final int TYPE_MESSAGE_GROUP = 1;
@@ -23,12 +24,14 @@ public class MessageFromListen {
     private final int typeMessage;
     private final String threadId;
 
+    private final boolean isFromMaster;
+
     /**
      *
      * @param typeMessage: 0 tin nhắn cá nhân, 1 tin nhắn nhóm
      * @param data
      */
-    public MessageFromListen(int typeMessage, JSONObject data) {
+    public WebChat(int typeMessage, JSONObject data) {
         switch (typeMessage) {
             case 0:
             case 1:
@@ -43,18 +46,20 @@ public class MessageFromListen {
         this.threadId = typeMessage == 0
                 ? getUidFrom().equals("0") ? data.getString("idTo") : data.getString("uidFrom")
                 : data.getString("idTo");
+
+        this.isFromMaster = ConfigHelper.isMessageFromMaster(data.optString("uidFrom", ""));
     }
 
-    public final Object getContent() {
-        return data.opt("content");
+    public final String getContent() {
+        return data.optString("content", "");
     }
 
     public final String getDName() {
-        return data.optString("dName", null);
+        return data.optString("dName", "");
     }
 
     public final String getUidFrom() {
-        return data.optString("uidFrom", null);
+        return data.optString("uidFrom", "");
     }
 
 }
