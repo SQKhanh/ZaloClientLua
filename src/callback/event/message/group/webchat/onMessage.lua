@@ -1,7 +1,7 @@
 local this = {}
 
 --- Xử lý khi nhận được message
--- @param: com.khanhdz.bot.zalo.model.dto.MessageFromListen: msg,
+-- @param: com.khanhdz.bot.zalo.model.dto.msgType.WebChat: msg,
 function this.process(msg)
 
     if msg:isFromMaster() then
