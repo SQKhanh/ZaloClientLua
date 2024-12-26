@@ -1,12 +1,19 @@
 zalo:
-  # Đường dẫn tới dữ liệu tài khoản
+  # Đường dẫn tới dữ liệu tài khoản, thư mục chứa các thông tin tài khoản
   pathDataAccount: data/account/
 
-  # Lắng nghe sự kiện từ bản thân hay không
+  # Xác định có lắng nghe sự kiện từ chính tài khoản này hay không
+  # Nếu giá trị là false, sẽ không lắng nghe sự kiện từ bản thân
   selfListen: false
 
-  # Phiên bản API, Nếu giá trị là -1, sử dụng giá trị mặc định là 30
+  # Phiên bản API sử dụng. Nếu giá trị là -1, sẽ sử dụng giá trị mặc định là 30
+  # Nếu bạn cần sử dụng phiên bản khác, thay đổi giá trị này
   apiVersion: -1
 
-  # Loại API, Nếu giá trị là -1, sử dụng giá trị mặc định là 642
+  # Loại API sử dụng. Nếu giá trị là -1, sẽ sử dụng giá trị mặc định là 642
+  # Thay đổi giá trị này nếu bạn cần sử dụng loại API khác
   apiType: -1
+
+  # Cấu hình tự động kết nối lại khi gặp lỗi Ping-Pong hoặc mất kết nối
+  # Nếu là true, sẽ tự động kết nối lại khi có sự cố xảy ra
+  listenerAutoReconnectOnFailurePingPong: true

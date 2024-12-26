@@ -14,6 +14,9 @@ import org.json.JSONObject;
 @Getter
 public class MessageFromListen {
 
+    public static final int TYPE_MESSAGE_DIRECT = 0;
+    public static final int TYPE_MESSAGE_GROUP = 1;
+
     private final boolean isSelf;
     private final JSONObject data;
 
