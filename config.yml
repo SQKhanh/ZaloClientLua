@@ -1,6 +1,9 @@
 zalo:
+  # Đường dẫn tới source lua
+  pathSourceLua: "/ZaloClientLua"
+
   # Đường dẫn tới dữ liệu tài khoản, thư mục chứa các thông tin tài khoản
-  pathDataAccount: data/account/
+  pathDataAccount: "/data/account/"
 
   # Xác định có lắng nghe sự kiện từ chính tài khoản này hay không
   # Nếu giá trị là false, sẽ không lắng nghe sự kiện từ bản thân
