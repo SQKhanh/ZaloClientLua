@@ -6,11 +6,11 @@ zalo:
   # Nếu giá trị là false, sẽ không lắng nghe sự kiện từ bản thân
   selfListen: false
 
-  # Phiên bản API sử dụng. Nếu giá trị là -1, sẽ sử dụng giá trị mặc định là 30
+  # Phiên bản API sử dụng. Nếu giá trị là -1, sẽ sử dụng giá trị mặc định là 642
   # Nếu bạn cần sử dụng phiên bản khác, thay đổi giá trị này
   apiVersion: -1
 
-  # Loại API sử dụng. Nếu giá trị là -1, sẽ sử dụng giá trị mặc định là 642
+  # Loại API sử dụng. Nếu giá trị là -1, sẽ sử dụng giá trị mặc định là 30
   # Thay đổi giá trị này nếu bạn cần sử dụng loại API khác
   apiType: -1
 
@@ -28,3 +28,4 @@ zalo:
   # Vì vậy, cần cấu hình lại danh sách ID nhóm khi thay đổi tài khoản sử dụng.
   idGroupActive:
     - "5090396119491093489"
+    - "5401995638456220834"

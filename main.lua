@@ -14,9 +14,9 @@ MainLuaByKhanhDz = {
     LISTENER_ON_ERROR = require("src.callback.listener.onError"),
     LISTENER_ON_CLOSE = require("src.callback.listener.onClose"),
 
-    EVENT_MESSAGE_DIRECT_WEBCHAT = require("src.callback.event.message.direct.webchat.onMessage"),
-    EVENT_MESSAGE_DIRECT_WEBCHAT_SELF = require("src.callback.event.message.direct.webchat.onSelfMessage"),
+    EVENT_MESSAGE_WEBCHAT_DIRECT = require("src.callback.event.message.webchat.direct.onMessage"),
+    EVENT_MESSAGE_WEBCHAT_DIRECT_SELF = require("src.callback.event.message.webchat.direct.onSelfMessage"),
 
-    EVENT_MESSAGE_GROUP_WEBCHAT = require("src.callback.event.message.group.webchat.onMessage"),
-    EVENT_MESSAGE_GROUP_WEBCHAT_SELF = require("src.callback.event.message.group.webchat.onSelfMessage")
+    EVENT_MESSAGE_WEBCHAT_GROUP = require("src.callback.event.message.webchat.group.onMessage"),
+    EVENT_MESSAGE_WEBCHAT_GROUP_SELF = require("src.callback.event.message.webchat.group.onSelfMessage")
 }
