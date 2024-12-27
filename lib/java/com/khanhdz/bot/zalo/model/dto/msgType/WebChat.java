@@ -4,7 +4,7 @@
  */
 package com.khanhdz.bot.zalo.model.dto.msgType;
 
-import com.khanhdz.config.ConfigHelper;
+import com.khanhdz.config.ZaloConfigHelper;
 import lombok.Getter;
 import org.json.JSONObject;
 
@@ -33,11 +33,11 @@ public class WebChat {
      */
     public WebChat(int typeMessage, JSONObject data) {
         switch (typeMessage) {
-            case 0:
-            case 1:
+            case TYPE_MESSAGE_DIRECT:
+            case TYPE_MESSAGE_GROUP:
                 break;
             default:
-                throw new RuntimeException("Invalid TypeMessage");
+                throw new RuntimeException("Unknow TypeMessage: " + typeMessage);
         }
         this.typeMessage = typeMessage;
         this.isSelf = data.optString("uidFrom").equals("0");
@@ -47,7 +47,7 @@ public class WebChat {
                 ? getUidFrom().equals("0") ? data.getString("idTo") : data.getString("uidFrom")
                 : data.getString("idTo");
 
-        this.isFromMaster = ConfigHelper.isMessageFromMaster(data.optString("uidFrom", ""));
+        this.isFromMaster = ZaloConfigHelper.isMessageFromMaster(data.optString("uidFrom", ""));
     }
 
     public final String getContent() {

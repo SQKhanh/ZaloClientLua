@@ -6,46 +6,49 @@ function this.process(msg)
 
     if msg:isFromMaster() then
         print('is master');
-        
+
         print(string.format([[
             ??? group on message ???
-            msg: %s
-        ]], msg:getData():toString(4)))
+            msg: %s 
+        ]], msg:getData():toString(4)));
+
+        if ZaloConfigHelper.class:isGroupActive(msg:getThreadId()) then
+            print('is group active');
+        else
+            print('is group not active');
+
+            local content = msg:getContent();
+
+            if content == 'get group id' then
+                local json = ZaloAPI.replyMessage(string.format([[Thưa đại ca đây là idGroup: %s]],
+                    msg:getThreadId()), msg);
+
+                if json == nil then
+                    print("Gửi tin nhắn không thành công")
+                else
+                    print(string.format([[
+                        Gửi tin nhắn thành công
+                        json: %s
+                    ]], json:toString(4)))
+                end
+            else
+                local json = ZaloAPI.replyMessage('Em nhận được tin nhắn rồi ạ ?', msg);
+
+                if json == nil then
+                    print("Gửi tin nhắn không thành công")
+                else
+                    print(string.format([[
+                        Gửi tin nhắn thành công
+                        json: %s
+                    ]], json:toString(4)))
+                end
+            end
+
+        end
 
     else
         print('is not master');
     end
-
-    -- local success, err = pcall(function()
-    --     if msg:getTypeMessage() == 0 then
-    --         -- Xử lý tin nhắn cá nhân
-    --         if not msg:isSelf() then
-    --             print(string.format([[
-    --                 msg: %s
-    --             ]], msg:getData():toString(4)))
-    --         end
-    --     elseif msg:getTypeMessage() == 1 then
-    --         -- Xử lý tin nhắn trong nhóm
-    --         if not msg:isSelf() then
-    --             print(string.format([[
-    --                 msg: %s
-    --             ]], msg:getData():toString(4)))
-
-    --             if msg:getData():optString("uidFrom", "-1") == '8577675992826788959' then
-    --                 print('shut down ne')
-    --                 Zalo.shutdown(0)
-    --             end
-
-    --         end
-    --     else
-    --         -- Các loại tin nhắn khác
-    --         print('unknow message')
-    --     end
-    -- end)
-
-    -- if not success then
-    --     print("Lỗi xử lý tin nhắn: " .. tostring(err))
-    -- end
 
 end
 

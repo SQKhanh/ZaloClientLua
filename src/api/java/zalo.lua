@@ -1,7 +1,11 @@
 Zalo = {
-    class = luajava.bindClass("com.khanhdz.bot.zalo.Zalo")
 }
+local class = luajava.bindClass("com.khanhdz.bot.zalo.Zalo")
 
 function Zalo.shutdown(code)
-    Zalo.class:systemExit(tonumber(code));
+    class:systemExit(tonumber(code));
+end
+
+function Zalo.reloadLua()
+    class.Instance:reloadLua();
 end
