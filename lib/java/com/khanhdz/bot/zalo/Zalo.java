@@ -38,4 +38,8 @@ public final class Zalo {
         System.exit(code);
     }
 
+    public final void reloadLua() {
+        ZaloLua.Instance.loadAllLua(false);
+    }
+
 }
