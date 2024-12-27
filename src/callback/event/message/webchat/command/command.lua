@@ -25,10 +25,12 @@ function this.processMasterMsg(msg)
         return
     end
 
-    ZaloAPI.replyMessageMention('content: <' .. content .. '>', msg);
+    -- ZaloAPI.replyMessageMention('content: <' .. content .. '>', msg);
 
     if content == 'shutdown' then
-        print('shut down ne')
+
+        ZaloAPI.replyMessageMention('Em shutdown đây bái bai ♥', msg);
+
         Zalo.shutdown(0)
     elseif content == 'reload lua' then
         Zalo.reloadLua();
