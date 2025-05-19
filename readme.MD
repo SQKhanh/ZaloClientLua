@@ -2,7 +2,7 @@
 
 ## Lưu ý
 
-Hiện tại project này đã dừng update !!!!
+**Hiện tại project này đã dừng update !!!!**
 
 ## 📝 Giới thiệu
 
