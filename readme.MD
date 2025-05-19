@@ -1,5 +1,9 @@
 # ZaloClientLua
 
+## Lưu ý
+
+Hiện tại project này đã dừng update !!!!
+
 ## 📝 Giới thiệu
 
 ZaloClientLua là một ứng dụng Java được phát triển để kết nối và tương tác với nền tảng chat.zalo.me thông qua giao thức WebSocket. Ứng dụng này sử dụng Lua nhúng để xử lý các callback và tương tác với API của Zalo, trong khi các logic kết nối tới server được giữ kín và không tiết lộ cho người dùng. Lua sẽ gọi các API từ Java để thực hiện các tác vụ cần thiết trong quá trình chương trình chạy.
